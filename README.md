@@ -55,3 +55,13 @@ Once the video has been annotated, this button triggers the process to generate 
 **Train Model**
 
 After generating a dataset, click this button to initiate the training process of a machine learning model using the dataset. Progress or results of the training might be displayed or stored based on the underlying code.
+
+# Issues and Enhancements
+
+**Current Issues:**
+
+- Training Model Problem: The "Train Model" function is currently non-operational due to an incorrect file structure within data.yaml.
+
+**Feature Requests:**
+
+- Enhanced File Selection: Allow the selection of models and files without relying on file extensions, providing greater flexibility and a more intuitive user experience.
