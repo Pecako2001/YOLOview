@@ -1,4 +1,4 @@
-**#YOLOview: Advanced YOLO Visualizer with tkinter**
+# **#YOLOview: Advanced YOLO Visualizer with tkinter**
 
 Welcome to YOLOScope, a comprehensive solution for visualizing YOLO-based object detections and annotations, seamlessly integrated with a tkinter GUI.
 
@@ -26,3 +26,32 @@ All contributions, either in the form of feature requests or pull requests, are 
 **Contact & Credits**
 Developed by Koen van Wijlick. For inquiries or feedback, please reach out to koenvanwijlick@gmail.com.
 
+
+# **User Interface Overview**
+
+![v1](https://github.com/Pecako2001/YOLOview/assets/77498283/fa5c3fc4-302f-4945-a621-8a80f6a92b2a)
+
+**Ask for Video Path**
+
+
+Upon clicking this button, the user will be prompted to select or input a path to a video file. This video will then be the subject of subsequent operations.
+
+**Process Video**
+
+After specifying the video path, use this button to initiate processing on the chosen video. The exact processing steps will be determined by the underlying functionality, which might include tasks like extracting frames, basic edits, etc.
+
+**Annotate Data**
+
+Clicking on this button allows users to annotate the video data. Annotations could include marking objects, specifying regions of interest, or tagging frames with specific labels.
+
+**Annotation Viewer**
+
+Use this feature to view the annotations made on the data. It provides a visual representation of all the markings and tags added during the annotation process.
+
+**Generate Dataset**
+
+Once the video has been annotated, this button triggers the process to generate a structured dataset. This dataset can be used for various machine learning tasks, ensuring all annotations are appropriately integrated.
+
+**Train Model**
+
+After generating a dataset, click this button to initiate the training process of a machine learning model using the dataset. Progress or results of the training might be displayed or stored based on the underlying code.
