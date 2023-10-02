@@ -1,6 +1,6 @@
 # **#YOLOview: Advanced YOLO Visualizer with tkinter**
 
-Welcome to YOLOScope, a comprehensive solution for visualizing YOLO-based object detections and annotations, seamlessly integrated with a tkinter GUI.
+YOLOView is an application designed for creating, segmenting, and checking frames, as well as assembling datasets and training a YOLO segmentation model. During the training process, it provides real-time data insights directly from the model.
 
 **Features**
 * Efficient YOLO Visualizations: Accurate real-time object detections and visual representation using YOLO.
