@@ -4,7 +4,7 @@ import numpy as np
 import random
 
 class framegen:
-    def generator(self, video):
+    def generator(self, video, filename):
         # Read the video from the specified path
         cam = cv2.VideoCapture(video)
 
@@ -25,17 +25,17 @@ class framegen:
             if ret:
                 # If the video is still playing, continue creating images every 500 frames
                 if currentframe % 20 == 0:
-                    name = './data/frame' + str(currentframe) + str(video) +'.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +'.jpg'
                     print('Creating...' + name)
                     cv2.imwrite(name, frame)
 
                     # 1. Grayscaling
-                    name = './data/frame' + str(currentframe) + str(video) + 'grayscale.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) + 'grayscale.jpg'
                     grayscale_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                     cv2.imwrite(name, grayscale_img)
 
                     # 2. Rotation
-                    name = './data/frame' + str(currentframe) + str(video) +  'rotated.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'rotated.jpg'
                     angle =  random.randrange(0,360,1)
                     rows, cols, _ = frame.shape
                     M = cv2.getRotationMatrix2D((cols / 2, rows / 2), angle, 1)
@@ -43,46 +43,46 @@ class framegen:
                     cv2.imwrite(name, rotated_img)
 
                     # 3. Resizing
-                    name = './data/frame' + str(currentframe) + str(video) +  'resized.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'resized.jpg'
                     temp = random.randrange(100,1000,1)
                     resized_img = cv2.resize(frame, (temp, temp))
                     cv2.imwrite(name, resized_img)
 
                     # 4. Cropping
-                    #name = './data/frame' + str(currentframe) + str(video) +  'cropped.jpg'
+                    #name = './data/frame' + str(currentframe) + str(filename) +  'cropped.jpg'
                     #cropped_img = frame[100:400, 100:400]
                     #cv2.imwrite(name, cropped_img)
 
                     # 5. Flipping
-                    name = './data/frame' + str(currentframe) + str(video) +  'flipped.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'flipped.jpg'
                     temp = random.randrange(-1,1,1)
                     flipped_img = cv2.flip(frame, temp)
                     cv2.imwrite(name, flipped_img)
 
                     # 6. Blurring
-                    name = './data/frame' + str(currentframe) + str(video) +  'blurred.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'blurred.jpg'
                     temp = random.choice(range(1, 26, 2))
                     blurred_img = cv2.GaussianBlur(frame, (temp, temp), 0)
                     cv2.imwrite(name, blurred_img)
 
                     # 7. Sharpening
-                    name = './data/frame' + str(currentframe) + str(video) +  'sharpened.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'sharpened.jpg'
                     kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
                     sharpened_img = cv2.filter2D(frame, -1, kernel)
                     cv2.imwrite(name, sharpened_img)
 
                     # 8. Edge Detection
-                    #name = './data/frame' + str(currentframe) + str(video) +  'edges.jpg'
+                    #name = './data/frame' + str(currentframe) + str(filename) +  'edges.jpg'
                     #edges_img = cv2.Canny(grayscale_img, 100, 200)
                     #cv2.imwrite(name, edges_img)
 
                     # 9. Negative Transformation
-                    name = './data/frame' + str(currentframe) + str(video) +  'negative.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'negative.jpg'
                     negative_img = 255 - frame
                     cv2.imwrite(name, negative_img)
 
                     # 10. Brightness Adjustment
-                    name = './data/frame' + str(currentframe) + str(video) +  'brighter.jpg'
+                    name = './data/frame' + str(currentframe) + str(filename) +  'brighter.jpg'
                     brighter_img = cv2.convertScaleAbs(frame, alpha=random.randrange(1,2,1), beta=random.randrange(20,30,1))
                     cv2.imwrite(name, brighter_img)
 

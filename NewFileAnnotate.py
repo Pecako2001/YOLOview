@@ -3,7 +3,7 @@ from autodistill.detection import CaptionOntology
 from autodistill_yolov8 import YOLOv8
 
 class newmodel:
-    def annotation(self):
+     def annotation(self):
 #while True:
 #    while True:
         base_model = GroundedSAM(ontology=CaptionOntology({
@@ -12,8 +12,8 @@ class newmodel:
 
         # label all images in a folder called `context_images`
         base_model.label(
-        input_folder="./data",
-        output_folder="./dataset"
+        input_folder="./data2",
+        output_folder="./trainset2"
         )
 #        break
 #    break

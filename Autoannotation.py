@@ -1,10 +1,13 @@
 from ultralytics.data.annotator import auto_annotate
 import shutil
-import os
+import os, io, sys
+import logging
+
 
 class Autoannotation:
     def annotate(self, detectionmodel):
         auto_annotate(data='data', det_model=detectionmodel, sam_model='sam_b.pt', output_dir='dataset')
+        print(f"detection with model = {detectionmodel}")
         # Check if the source folder exists
         source_folder = 'data'
         if not os.path.exists(source_folder):

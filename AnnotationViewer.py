@@ -2,7 +2,7 @@ import os
 import glob
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog, Canvas
-from PIL import Image, ImageTk, ImageDraw
+from PIL import Image, ImageTk, ImageDraw, ImageFont
 
 
 class AnnotationViewer:
@@ -114,13 +114,27 @@ class AnnotationViewer:
     def _draw_annotations(self, img_size, annotations_list):
         overlay = Image.new('RGBA', img_size, (255, 255, 255, 0))
         draw = ImageDraw.Draw(overlay)
-
+        large_font = ImageFont.truetype("arial.ttf", size=30)
         for annotations in annotations_list:
             width, height = img_size
             points = [(annotations[i] * width, annotations[i + 1] * height) for i in range(0, len(annotations), 2)]
             draw.line(points + [points[0]], fill=(0, 255, 0, 255), width=2)
             draw.polygon(points, fill=(255, 0, 0, 128))
+            label_position = (points[0][0], points[0][1]+15)  # Adjust y-offset as needed
+            try:
+                large_font = ImageFont.truetype("arial.ttf", size=30)  # Use a larger font size
+            except IOError:
+                large_font = ImageFont.load_default()
 
+            large_text_width, large_text_height = draw.textsize("Bag", font=large_font)
+            large_box_margin = 10  # Larger margin around the text
+            draw.rectangle(
+                [label_position[0] - large_box_margin, label_position[1] - large_box_margin, 
+                label_position[0] + large_text_width + large_box_margin, label_position[1] + large_text_height + large_box_margin],
+                outline=(255, 255, 255, 255),
+                fill=(0, 0, 0, 255),  # Filling the rectangle with black color
+                width=2)
+            draw.text(label_position, str("Bag"), fill=(255, 255, 255, 255), font=large_font)
         return overlay
 
     def _composite_and_display(self, img, overlay):
