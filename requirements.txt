@@ -1,2 +1,8 @@
 PILLOW==9.4.0
-ultralytics==8.0.188
+ultralytics==8.0.81
+numpy==1.25.2
+pandas==2.1.1
+ttkthemes==3.2.2
+autodistill==0.1.12
+autodistill-yolov8==0.1.1
+autodistill-grounded-sam==0.1.1

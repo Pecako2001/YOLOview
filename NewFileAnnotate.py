@@ -12,8 +12,8 @@ class newmodel:
 
         # label all images in a folder called `context_images`
         base_model.label(
-        input_folder="./data2",
-        output_folder="./trainset2"
+        input_folder="./data",
+        output_folder="./trainset"
         )
 #        break
 #    break
