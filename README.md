@@ -13,6 +13,8 @@ YOLOView is an application designed for creating, segmenting, and checking frame
 3. Install the required dependencies: pip install -r requirements.txt
 4. Run the application: python main.py
 
+My advice would be to create a virtual environment for this and install Conda in there.
+
 **Contributing**
 We value contributions from the community and encourage developers to improve and expand YOLOview's capabilities:
 1. Fork the repository.
